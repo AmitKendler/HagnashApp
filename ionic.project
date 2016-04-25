@@ -1,0 +1,12 @@
+{
+  "name": "HagnashApp",
+  "app_id": "44fe3019",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

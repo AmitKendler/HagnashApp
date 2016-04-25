@@ -1,0 +1,55 @@
+/* Empty. Add your own CSS if you like */
+
+span,
+div,
+h3,
+h2,
+h1,
+button,
+input,
+select {
+    font-family: 'Arimo';
+}
+
+.left-to-right {
+    direction: ltr;
+}
+
+.right-to-left {
+    direction: rtl;
+}
+
+.calendar-cont {
+    height: 350px;
+    margin-top: 40px;
+}
+
+.guards-cont {
+    top: 390px;
+}
+
+.item-checkbox-heb {
+    padding-right: 60px;
+}
+
+.item-radio input[type="radio"] {
+    display: none;
+}
+
+.marginShouldDelete {
+    margin-right: 30px;
+    transition: margin-right 0.1s;
+}
+
+.marginHideDelete {
+    margin-right: 0px;
+    transition: margin-right 0.1s;
+}
+
+.color-button {
+    background: red;
+    border: none;
+    height: 20pt;
+    width: 20pt; 	 
+    margin-right: 5pt;
+}

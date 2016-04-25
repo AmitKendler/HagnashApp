@@ -1,0 +1,37 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-stable">
+        <h1 class="title">אילוץ חדש</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">בטל</button>
+    </ion-header-bar>
+    <ion-content class="padding right-to-left">
+        <div class="list">
+            <ion-checkbox ng-disabled="positionsList.length <= 1" class="item-checkbox-heb" ng-model="newConstraint.allPositions" ng-click="
+            ">בכל עמדות</ion-checkbox>           
+                <ion-radio ng-if="!newConstraint.allPositions" ng-repeat="position in positionsList" ng-model="newConstraint.selectedPosition" ng-value="{{position.index}}">{{position.name}}
+                </ion-radio>
+            <label class="item item-input">
+                <span class="input-label">מספר שומרים</span>
+                <input ng-model="newConstraint.numberOfGuards" type="number"></input>
+            </label>
+            <ion-datetime-picker date="false" time="true" ng-model="newConstraint.fromHour" pickerlabel="משעה"></ion-datetime-picker>
+            <ion-datetime-picker date="false" time="true" ng-model="newConstraint.toHour" pickerlabel="עד שעה"></ion-datetime-picker>
+            <ion-checkbox class="item-checkbox-heb" ng-model="newConstraint.allDays" ng-click="
+            newConstraint.days.su=true;
+            newConstraint.days.mo=true;
+            newConstraint.days.tu=true;
+            newConstraint.days.we=true;
+            newConstraint.days.th=true;
+            newConstraint.days.fr=true;
+            newConstraint.days.sa=true;
+            ">בכל הימים</ion-checkbox>
+            <ion-checkbox ng-hide="newConstraint.allDays" class="item-checkbox-heb" ng-model="newConstraint.days.su">א</ion-checkbox>
+            <ion-checkbox ng-hide="newConstraint.allDays" class="item-checkbox-heb" ng-model="newConstraint.days.mo">ב</ion-checkbox>
+            <ion-checkbox ng-hide="newConstraint.allDays" class="item-checkbox-heb" ng-model="newConstraint.days.tu">ג</ion-checkbox>
+            <ion-checkbox ng-hide="newConstraint.allDays" class="item-checkbox-heb" ng-model="newConstraint.days.we">ד</ion-checkbox>
+            <ion-checkbox ng-hide="newConstraint.allDays" class="item-checkbox-heb" ng-model="newConstraint.days.th">ה</ion-checkbox>
+            <ion-checkbox ng-hide="newConstraint.allDays" class="item-checkbox-heb" ng-model="newConstraint.days.fr">ו</ion-checkbox>
+            <ion-checkbox ng-hide="newConstraint.allDays" class="item-checkbox-heb" ng-model="newConstraint.days.sa">ש</ion-checkbox>
+            <button class="button button-full button-positive" ng-click="addConstraint(newConstraint)">הוסף</button>
+        </div>
+    </ion-content>
+</ion-modal-view>

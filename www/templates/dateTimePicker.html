@@ -1,0 +1,6 @@
+<label ng-click="showPopup()" class="row item item-input">
+    <span class="input-label col-30">{{pickerlabel}}</span>
+    <span ng-if="timeEnabled && dateEnabled " class="col-70"> {{modelDate| date: "dd/MM/yyyy H:mm"}}</span>
+    <span ng-if="timeEnabled && !dateEnabled " class="col-70"> {{modelDate| date: "H:mm"}}</span>
+    <span ng-if="!timeEnabled && dateEnabled " class="col-70"> {{modelDate| date: "dd/MM/yyyy"}}</span>
+</label>

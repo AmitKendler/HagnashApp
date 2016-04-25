@@ -1,0 +1,29 @@
+
+    <div class="calendar-cont">
+        <calendar ng-model="calendarModel" calendar-mode="mode" event-source="eventSource"></calendar>
+    </div>
+
+    <ion-content class="guards-cont">
+    <div class="right-to-left">
+        <!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
+        <div class="item item divider">
+            <ion-header-bar class="bar-stable">
+                <h1 class="title">משתתפים - הכנס שמרות</h1>
+                <div class="buttons">
+                    <button class="button" ng-click="data.showReorder = !data.showReorder">
+                        שנה סדר
+                    </button>
+                </div>
+            </ion-header-bar>
+        </div>
+        <ion-list>
+            <div ng-repeat="guard in listOfGuards" class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="text" ng-model="guard.name" placeholder="הזן שם" />
+                </label>
+                <button class="color-button" style="background: {{guard.color}}">
+                </button>
+            </div>
+        </ion-list>
+    </div>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-view view-title="חישוב אופטימלי">
+    <ion-content>
+        <ion-list class="right-to-left">
+            <label class="item item-input">
+                <span class="input-label">מספר שומרים</span>
+                <input type="number" ng-model="calcRequest.numberOfGuards">
+            </label>
+            <ion-datetime-picker ng-model="calcRequest.startDate" pickerlabel="יום התחלה"></ion-datetime-picker>
+            <ion-datetime-picker ng-model="calcRequest.endDate" pickerlabel="יום סיום"></ion-datetime-picker>
+            <label class="item item-input">
+                <span class="input-label">מספר עמדות</span>
+                <input type="number" ng-change="numberOfPositionsChanged(calcRequest.numberOfPositions)" ng-model="calcRequest.numberOfPositions">
+            </label>
+            <label class="item item-divider" ng-click="openConstraintsPopver($event)">
+                הוסף אילוץ
+            </label>
+            <ion-list ng-click="shouldShowDelete=!shouldShowDelete" show-delete="shouldShowDelete">
+                <ion-item ng-repeat="constraint in calcRequest.constraints track by $index">
+                <span ng-class="{'marginShouldDelete':shouldShowDelete,'marginHideDelete':!shouldShowDelete} ">
+                    
+                        <span ng-if="constraint.allPositions">בכל העמדות:</span>
+                        <span ng-if="!constraint.allPositions">{{positionsList[constraint.selectedPosition].name+":"}}</span> {{constraint.numberOfGuards + " שומרים משעה "}} {{constraint.fromHour| date: "H:mm"}} {{" עד שעה " }} {{constraint.toHour| date: "H:mm" }}
+                        <span ng-if="constraint.allDays">{{" בכל הימים "}}</span>
+                        <span ng-if="!constraint.allDays">בימים : </span>
+                        <span ng-if="!constraint.allDays && constraint.days.su">א</span>
+                        <span ng-if="!constraint.allDays && constraint.days.mo">ב</span>
+                        <span ng-if="!constraint.allDays && constraint.days.tu">ג</span>
+                        <span ng-if="!constraint.allDays && constraint.days.we">ד</span>
+                        <span ng-if="!constraint.allDays && constraint.days.th">ה</span>
+                        <span ng-if="!constraint.allDays && constraint.days.fr">ו</span>
+                        <span ng-if="!constraint.allDays && constraint.days.sa">ש</span>
+                </span>
+                    <ion-delete-button class="ion-minus-circled" ng-click="calcRequest.constraints.splice($index, 1)">
+                    </ion-delete-button>
+                </ion-item>
+            </ion-list>
+        </ion-list>
+        <a ng-click="calculateBestShiftsSchedule()" class="right-to-left button button-block button-balanced">חשב!</a>
+    </ion-content>
+</ion-view>
